@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import scrollToSection from "../../../hooks/scrollToSection";
 
 import hero_img_1 from "../../../assests/hero_img_1.png";
 import hero_img_2 from "../../../assests/hero_img_2.png";
@@ -69,19 +70,25 @@ const Hero = () => {
                   <div className="text-white-100 text-xl font-semibold flex flex-col lg:flex-row justify-center items-center gap-4 transition-all duration-500 group-hover:text-white">
                     <div>{service.title}</div>
                     {service.comingSoon && (
-                      <Link to="#marketplace" className="bg-white text-sm border-2 border-white rounded-[1.38rem] px-8 py-1 transition-all duration-500 group-hover:bg-white">
+                      <button
+                        
+                        className="bg-white text-sm border-2 border-white rounded-[1.38rem] px-8 py-1 transition-all duration-500 group-hover:bg-white"
+                      >
                         Coming soon
-                      </Link>
+                      </button>
                     )}
                   </div>
                   {service.comingSoon && (
-                    <Link  to="#marketplace" className="hidden group-hover:block mt-4 px-6 py-3 bg-secondary-200 text-white-100 rounded-lg">
+                    <button
+                      onClick={() => scrollToSection("marketplace")}
+                      className="hidden group-hover:block mt-4 px-6 py-3 bg-secondary-200 text-white-100 rounded-lg"
+                    >
                       Get started
-                    </Link>
+                    </button>
                   )}
                 </div>
 
-                  {/* Default Positioned Text & Button */}
+                {/* Default Positioned Text & Button */}
                 {/* <div className="absolute bottom-0 w-full bg-[#1E1E1E]/40 backdrop-blur-sm py-4 lg:py-9 flex flex-col items-center justify-center gap-3 transition-all duration-100 group-hover:bottom-1/2 group-hover:translate-y-1/2 group-hover:bg-transparent group-hover:backdrop-blur-none">
                   <div className="text-white-100 text-xl font-semibold flex flex-col lg:flex-row justify-center items-center gap-4 transition-all duration-500 group-hover:text-white">
                     <div>{service.title}</div>

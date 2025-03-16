@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import scrollToSection from "../../hooks/scrollToSection";
 import logo from "../../assests/hage_logo_1.svg";
 import dropdown from "../../assests/down-button-icon.svg";
 
@@ -9,18 +9,7 @@ const Navbar = () => {
   const [showServiceDropdown, setShowServiceDropdown] = useState(false);
   const [showCompanyDropdown, setShowCompanyDropdown] = useState(false);
 
-  const scrollToMarketplace = () => {
-    const marketplaceSection = document.getElementById("marketplace");
-    if (marketplaceSection) {
-      const navbarHeight = document.querySelector("nav").offsetHeight;
-      const sectionPosition = marketplaceSection.offsetTop - navbarHeight;
-      window.scrollTo({
-        top: sectionPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
+  
   return (
     <nav>
       <div className="flex justify-between items-center px-4 py-4 md:px-16 md:py-6 w-full bg-primary-100 text-white-100 font-body">
@@ -62,7 +51,6 @@ const Navbar = () => {
                 >
                   Cross-Border Logistics
                 </NavLink>
-              
               </div>
             )}
           </li>
@@ -137,14 +125,13 @@ const Navbar = () => {
                 >
                   About us
                 </NavLink>
-                
+
                 <NavLink
                   to="/company#faq"
                   className="block p-3 hover:bg-secondary-100 text-sm"
                 >
                   FAQ
                 </NavLink>
-               
               </div>
             )}
           </li>
@@ -159,7 +146,7 @@ const Navbar = () => {
 
         {/* Sign up button */}
         <button
-          onClick={scrollToMarketplace}
+          onClick={() => scrollToSection("marketplace")}
           className="hidden md:flex justify-center items-center px-4 py-2.5 bg-secondary-200 hover:bg-[#57976F] rounded-lg text-sm font-light"
         >
           Join waitlist

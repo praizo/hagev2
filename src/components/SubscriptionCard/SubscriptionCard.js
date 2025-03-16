@@ -1,5 +1,5 @@
 import React from "react";
-
+import scrollToSection from "../../hooks/scrollToSection";
 const SubscriptionCard = ({ plans }) => (
   <div className="grid md:grid-cols-3 gap-4 xl:gap-8">
     {plans.map((plan, index) => (
@@ -39,6 +39,7 @@ const SubscriptionCard = ({ plans }) => (
         {/* Button */}
         <div className="mt-6 md:mt-auto">
           <button
+            onClick={() => scrollToSection("marketplace")}
             className={`py-3 w-full text-white-100 rounded-lg text-center ${plan.buttonBg} hover:${plan.buttonBghover}`}
           >
             Get started
